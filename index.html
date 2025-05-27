@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+  <body background="schoolbg.png" style="background-size: cover; background-repeat: no-repeat; background-attachment: fixed;"></body>
+  <header>
+    <h1>Student Portal</h1>
+    <button id="logoutIcon" class="logout-btn" onclick="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </header>
+
+  <!-- Registration Page -->
+  <div id="register-page">
+    <h2 id="registration">Register</h2>
+    <form id="register-form">
+      <input type="text" name="fullName" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+      <input type="tel" name="phone" placeholder="Phone No." required />
+      <select name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <input type="textarea" name="address" placeholder="Address" required />
+      <input type="file" name="userPhoto" accept="image/*" required />
+      <button type="submit">Register</button>
+    </form>
+    <p id="already">Already registered? <a href="#" onclick="showLoginPage()">Login here</a></p>
+  </div>
+
+  <!-- Login Page -->
+  <div id="login-page" style="display:none;">
+    <h2 id="log">Login</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="registerPrompt">Not registered? <a href="#" onclick="showRegisterPage()">Register here</a></p>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" style="display:none;">
+    <h2>Welcome, <span id="userName"></span></h2>
+    <img id="userPhotoDisplay" src="" alt="User Photo" />
+
+<h3 id="addstu">Add Student Details</h3>
+<form id="student-form">
+  <input type="text" name="studentName" placeholder="Student Name" required />
+  <input type="number" name="studentAge" placeholder="Age" required min="1" max="22" />
+  
+  <select name="studentGrade" required>
+    <option value="" disabled selected>Select Class</option>
+    <option value="I">Class I</option>
+    <option value="II">Class II</option>
+    <option value="III">Class III</option>
+    <option value="IV">Class IV</option>
+    <option value="V">Class V</option>
+    <option value="VI">Class VI</option>
+    <option value="VII">Class VII</option>
+    <option value="VIII">Class VIII</option>
+    <option value="IX">Class IX</option>
+    <option value="X">Class X</option>
+  </select>
+
+  <input type="number" name="math" placeholder="Math Marks" required min="0" max="100" />
+  <input type="number" name="science" placeholder="Science Marks" required min="0" max="100" />
+  <input type="number" name="english" placeholder="English Marks" required min="0" max="100" />
+  <input type="number" name="history" placeholder="History Marks" required min="0" max="100" />
+  <input type="number" name="computer" placeholder="Computer Marks" required min="0" max="100" />
+  <input type="file" name="studentPhoto" accept="image/*" />
+  <button type="submit">Add Student</button>
+</form>
+
+
+    <!-- Search and Sort -->
+    <div class="search-sort-container">
+      <input type="text" id="searchInput" placeholder="Search students by name, grade or age..." />
+      <select id="sortSelect">
+        <option value="">Sort By</option>
+        <option value="name">Name (A-Z)</option>
+        <option value="name-desc">Name (Z-A)</option>
+        <option value="grade">Grade (Low-High)</option>
+        <option value="grade-desc">Grade (High-Low)</option>
+        <option value="age">Age (Low-High)</option>
+        <option value="age-desc">Age (High-Low)</option>
+        <option value="total">Total Marks</option>
+      </select>
+    </div>
+
+    <!-- Student List -->
+    <div class="student-list-container">
+      <ul id="student-list"></ul>
+    </div>
+  </div>
+  <!-- Add to dashboard -->
+
+
+  <script src="script.js"></script>
+</body>
+</html>
